@@ -1,0 +1,60 @@
+<div class="row">
+    <div class="col-md-2"></div>
+    <div class="col-md-8">
+
+        <div class="todos" *ngIf="studentsList">
+            <table class="table">
+                <thead class="h">
+                    <tr class="h">
+                        <th class="h">Name</th>
+                        <th class="h">Class</th>
+                        <th class="h">gender</th>
+                        <th class="h">address</th>
+
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr class="todo" *ngFor="let student of studentsList">
+
+                        <td>{{student.Name}}</td>
+                        <td>{{student.Class}}</td>
+                        <td>{{student.Address}}</td>
+                        <td>{{student.RollNo}}</td>
+
+                        <td class="o">
+                            <button class="btn btn-success" (click)="doneStudent(student)">
+                <i class="fa fa-check"></i>
+              </button>
+                            <button class="btn btn-primary" (click)="editStudent(student)">
+                <i class="fa fa-pencil"></i>
+              </button>
+                            <button class="btn btn-danger" (click)="deleteStudent(student)">
+                <i class="fa fa-trash"></i>
+              </button>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        <form>
+            <div class="form-row">
+                <div class="col-md-2">
+                    <input type="text" name="name" id="name" [(ngModel)]="newStudent.Name" placeholder="name" class="form-control">
+                </div>
+                <div class="col-md-2">
+                    <input name="sclass" id="sclass" [(ngModel)]="newStudent.Class" placeholder="classs" class="form-control">
+                </div>
+                <div class="col-md-2">
+                    <input name="address" id="address" [(ngModel)]="newStudent.Address" placeholder="address" class="form-control">
+                </div>
+                <div class="col-md-2">
+                    <input name="RollNo" id="RollNo" [(ngModel)]="newStudent.RollNo" placeholder="RollNo" class="form-control">
+                </div>
+                <div class="col-md-2">
+                    <button type="submit" class="btn btn-primary" (click)="create()">Add</button>
+                </div>
+            </div>
+        </form>
+    </div>
+    <div class="col-md-2"></div>
+</div>
